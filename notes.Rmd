@@ -1,0 +1,647 @@
+---
+title: "Notes"
+author: "Jaime A. Prudencio-Vázquez"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+Main ideas that must be placed in introduction: i) the importance of tourism activities to Mexico, ii) the importance of the CIP in tourism activities, iii) necessity or importance of understand spatial distribution of establishment in tourism management and planning.
+
+More have to been told about CIP an their caractristics, may be in introduction.
+
+A best explain on empirical literature is needed, especially on Mexican studies.
+
+
+
+
+# Abtract
+
+Studies on spatial patterns on economic activity contributes to management, planning and fostering it since investors, policy makers and social organizations have valuable information on where and why activity is concentrated. Spatial patterns on tourism has been studied to organize tourist flown to take better advantage of existing infrastructure, 
+planning new one and promoting new tourism facilities and for conservative natural areas purposes.
+
+i) In Mexico, the Natural Protected Area (NPA) of Sierra Gorda has an extraordinary variety of flora and fauna and it counts with many with at least 130 mammal species, 347 bird species, among others. The tourism activities in some NPA is fostered by central Mexican government. Nevertheless, it is not clear enough if this activities have a positive impact in social and economic development of communities settled in NPA and there is even more doubts if tourism activities not affect negatively natural environment. So, the objective of this article is to explore the spatial distribution patterns points of tourism interest in Sierra Gorda NPA in order to have information of their concentrations and orientation capable to be used in evaluate the potential of tourism activities for planners, local asosiations and entrepreneurs.
+
+
+## Mexican tourism
+
+
+De la Cruz et al. [-@Cruz2010] examined the case of Mexico by analyzing the relationship between tourism and Mexico's economic growth, identifying main factors that drive economic growth through tourism. This analysis shows that tourism has a positive impact on Mexico's economic growth. In turn, tourist spending and investment in tourism have a significant effect on economic growth at the state level, while tourist infrastructure also has a positive effect on economic growth, although less significant.
+
+
+
+Wang et al. [-@Wang2022] seek for:
+
+i. Classified tourist attractions in a China region.  
+ii. "Studied the spatial distribution pattern, distribution direction, and influencing factors of tourist attractions based on point-of-interest (POI) data" (p. 3).  
+
+This is particular relevant "for the purpose of policy making for tourism spatial planning" (p. 3)
+
+The used methods to analyze spatial patterns are: 
+
+i) Average nearest neighbor (with ArcMap)
+ii) Kernel density analysis  
+iii) Standard deviation ellipse  
+iv) Hot spot analysis  
+
+
+Information and data source
+
+They use information extracted from a map service in China "Gaode Map" (Amap) to obtain Point Of Interest data (POI) using three key words:  “tourism”,“tourist attraction”, and “scenic spot”.
+
+Because the first data base contains information on "hotels" and "tourist hotels", that registers were elimintated. 
+
+Methods
+
+* Average Nearest Neighbor Analysis: it can be done with the `spatialEco` package, with the function `nni()` for Average Nearest Neighbor Index (NNI).  
+* Kernel Density: with the same package, with the function `sf.kde()` for Spatial kernel density estimate, or i QGIS because they are heat maps.  
+* Standard Deviational Ellipse: with `aspace`  package and the `calc_sde()` function, but the package were deprecated.  
+* Hot Spot Analysis: the analysis were carried out though G* index that can be computed with `rgeoda` package with the `local_gstar()` function.
+
+
+Literature review
+
+[@Blasco2013]
+They propose a new approach to delimitate tourism regions in beyond administrative boundaries based on the spatial distribution of attractions, particularly in mountain regions. They use hierarchical cluster analysis to group and classify attractions in nine regions in Pyrenees mountains, independently of administrative boundaries.
+
+[@Akerma2021]
+This paper studies the spatial patterns and factors influencing tourism in the Bahamas through social media data, as well as estimates visits and tourism expenditure. The goal is to support sustainable planning and management in marine protected areas. 
+
+[@Derek2019]
+Based on a typology of tourism and tourist in the Great Lakes Regions in Poland, they study travel patterns through cluster analysis on survey data to understand different patterns and concentration to contribute a better planning and management of tourism.
+
+[@Dunets2019]
+On the basis of spatial planning, i.e. ideal placement of tourist paths and the spatial arrangement of the infrastructure, the authors propose a project of health tourism in Russia trying to balance the stakeholders interest and the nature preservation.
+
+[@Ghermandi2020]
+In this study, the spatial distribution of cultural and ecological tourism that highlights the connection between a place's history, cultural heritage, and natural environment is studied. They distinguish between local, national and international geolocated photographs to describe spatial patterns of tourism in the Usumacinta floodplain in Southern Mexico. They found that the hot spot of cultural services have so much more international visitors.
+
+[@Guedes2015]
+This study examines how tourism packages for mainland Portugal are organized by looking at the cultural tourist attractions and the number of overnight stays allocated to each municipality. The goal is to identify patterns in how different areas are grouped together and the routes tourists typically take. This approach aims to provide an alternative to the polarized spatial layout created by mass tourism in Portugal since 1965, which has been replicated in the Algarve region after the construction of the international airport in Faro.
+
+
+[@Kang2018]
+Kang et al. [-@Kang2018: 1], who cites to Pearce (1991) proportionate a definition of "tourist attraction" as a "named site with a specific human or natural feature which is the focus of visitor and management attention".
+
+Through the Anchor Point Theory, they study the spatial structure of the tourist attractions in Korea capital with, among others methods, constructing local indicators of spatial asociation.
+
+## Empirical studies about CIP
+
+[@Tulio2006]
+
+The authors describe the emergence of CIPs in the context of economic opening process in the late 1970s, where, although they are projects led by the state, their central purpose was the generation of foreign exchange to alleviate pressures on the balance of payments. Therefore, the Bank of Mexico and the Ministry of Finance have played a leading role in the development of these projects. From the five original projects, only two of them had been succeed in the way originally planned. They pointed out social and environmental problems that raised during and after the construction of the CIP.
+
+
+## Social issues as inequality and envormental problems
+
+### Cancún 
+[@Torres2008]
+Torres and Momsen [-@Torres2008], based on an overview of public policies and interview with key actors, analyze the effects Cancún CIP on equity and regional development. Their study shows that CIP has been an important driver for economic growth in Quintana Roo, but has resulted in socioeconomic and environmental inequalities since has been oriented towards the development of elite tourist destinations, which has resulted in the marginalization of local communities and environmental degradation in some areas. They suggest a more equitable and sustainable approach to local tourism development that take into account the interest of local communities about taking decistions on tourism management.
+
+### Los Cabos
+
+[@Montaño2017]
+In this study, they evaluate the performance of Los Cabos CIP from sustainable point of view. For them, Los Cabos has undergone a rapid tourist development in the last four decades, which has generated significant economic benefits for the region. However, a series of challenges and problems associated with tourist development have also been identified, including environmental degradation, socioeconomic inequality, and a lack of economic diversification.
+
+### Huatulco
+
+[@Monterrubio2012;@Mendoza2011]
+They study perception of people who lived in Huatulco CIP through a representative survey. Residents of Huatulco perceive both positive and negative impacts of tourism in their community as job creation and improvement of local infrastructure and services, but increasing living cost and cultural identity loss. The authors highlights the importance of considering the perceptions and experiences of local residents in CIP planning and management.
+
+### Several CIP
+
+[@Monterrubio2018]
+The authors compare socioeconomic impacts of three CIP: Cancún, Ixtapa-Zihuatanejo, and Los Cabos. They underline economic dependence on foreign capital and a non diversified economic structure with a very little benefits to the local residents. The importance of more equitable and participatory tourism planning is highlighted in order to reduce economic dependence and improve the distribution of benefits in local communities.
+
+## Performance
+
+### Ixtapa
+[@Hernández2006]
+Through a survey, they study the image, satisfaction and loyalty of 140 foreign tourist at Ixtapa-Zihuatanejo CIP. Results indicate that CIP image is positive, with high tourist satisfaction with the tourism services offered and a high intention to return.
+
+### Huatulco
+[@Piñon2019]
+From the perspective of the planning and management of smart tourist destinations, they study Huatulco CIP. Using interviews and direct observation, authors identified different areas where technology and innovation could improve the tourist experience, such as information management, tourism promotion, mobility, sustainability, and security. Although Huatulco is not yet a fully smart tourist destination, there are several ongoing projects to improve the use of technology and move towards this goal. The concept of a smart tourist destination can be useful in improving the competitiveness and sustainability of tourism in destinations like Huatulco.
+
+### Several CIP
+
+[@Montaño2019]
+
+They studied local development disparities in two CIP located in Baja California Sur: Los Cabos and Loreto. Despite Los Cabos and Loreto were both planned and managed by SECTUR, their performance as tourist destinations and effects on local development are different: while Los Cabos has experienced a fast tourism and economic growth Loreto has challenged slowly growth and has bet to a more sustainable approach
+
+
+
+
+## Teorical literature
+
+La literatura teórica sobre el análisis espacial es basta. Entre los trabajos seminales que desarrollan el análisis espacial se encuentra el de Tobbler [-@Tobler1970] quien a través del estudio de los proceso de crecimiento y crecimiento urbano en los Estads Unidos observa relaciones entre objetos espaciales y postula la llamada primera ley de la geografía.
+
+Por su parte, Berry (1967, citado por Morgan [-@Morgan1968]) estudia cómo los determinantes de ubicación de las áreas de mercado centrales están asociaciadas al crecimiento poblacional y a los procesos de urbanización.
+
+El campo de la estadística espacial y la evaluación formal de los patrones de asociación en el espacio denominados autocorrelación debe mucho al trabajo de Cliff y Ord quienes, a través de diversos trabajos, analizan técnicas para la detección y tratamiento de autocorrelación espacial [@Renshaw1982onCliffOrd; @Wrigley1982onCliffOrd], fundamentalmente desde la perspectiva de la geografía. La profundización de dichas contribuciones se logró incorporando indicadores para la evaluación se asociación espacial refinados a partir del tipo de distancia considerada, como el que desarrollan a principios de los noventa del siglo pasado Getis y Ord [-@Getis1992].
+
+El trabajo de Anselin [-@Anselin1988] es fundamental en el campo de la estadística y econometría, al incorporar la dimensión espacial a los fenómenos económicos y sociales y que si ésta es ignorada puede conducir a estimaciones ineficientes y sesgadas en los modelos econométricos.
+
+¿Cuáles son los trabajos clásicos sobre el análisis espacial en general y análisis espacial del turismo?
+
+¿Es posible clasificarlos y ordenarlos de algún modo?
+
+¿Cuáles son sus principales aportes de cada clasificación o grupo?
+
+## Autores:
+
+### Tobler
+
+Referencia bibliográfica:
+Tobler, W. (1987). Computer maps: How to map data in geographic space. Journal of Educational Computing Research, 3(4), 399-413.
+
+Waldo Tobler: en su trabajo "Computer Maps: How to Map Data in Geographic Space" de 1970, Tobler introdujo el concepto de "Primera Ley de la Geografía", que dice "todo está relacionado con todo lo demás, pero las cosas cercanas están más relacionadas que las cosas lejanas".
+
+Resumen general del trabajo:
+En este trabajo, Tobler discute cómo se pueden representar los datos en un mapa computarizado y explora los métodos de visualización espacial y análisis espacial. Tobler enfatiza la importancia de la visualización espacial para la comprensión y el análisis de los datos y destaca el papel crítico que juega la geografía en la investigación y el análisis de datos. Tobler también presenta una serie de ejemplos que muestran cómo los datos pueden ser representados y analizados en un espacio geográfico.
+
+Hallazgos importantes:
+El trabajo de Tobler enfatiza la importancia de la visualización espacial y la representación de datos en un espacio geográfico. Tobler destaca cómo los mapas pueden ayudar a comprender la distribución geográfica de los datos y cómo los patrones geográficos pueden informar y mejorar el análisis de los datos. Tobler también enfatiza la importancia de la geografía en la investigación y el análisis de datos.
+
+Metodología:
+En este trabajo, Tobler utiliza una serie de ejemplos para demostrar cómo se pueden representar y analizar los datos en un espacio geográfico. Tobler también discute los métodos de visualización espacial y análisis espacial y cómo se pueden aplicar a diferentes tipos de datos.
+
+Principales conclusiones:
+En su trabajo, Tobler destaca la importancia de la visualización espacial y la representación de datos en un espacio geográfico. Tobler enfatiza cómo los mapas pueden ayudar a comprender la distribución geográfica de los datos y cómo los patrones geográficos pueden informar y mejorar el análisis de los datos.
+
+#Berry
+
+Berry, B. J. L. (1967). The geography of market centers and retail distribution. Englewood Cliffs, NJ: Prentice-Hall.
+
+Brian J.L. Berry: en su obra "Geography of Market Centers and Retail Distribution" de 1967, Berry aplicó el análisis espacial a los patrones de mercado y distribución minorista, lo que sentó las bases del enfoque de análisis de la accesibilidad.
+
+Resumen general del trabajo:
+
+El trabajo de Berry es un estudio sobre la distribución del comercio minorista y los centros de mercado en los Estados Unidos en la década de 1960. El objetivo del estudio es proporcionar una explicación teórica de cómo se desarrollan los centros de mercado y cómo se relacionan con el crecimiento de la población y la urbanización.
+
+Hallazgos importantes:
+
+El estudio de Berry establece que el crecimiento de la población y la urbanización son factores determinantes en la localización de los centros de mercado y la distribución minorista. El trabajo destaca la importancia de la ubicación central en la distribución minorista y muestra cómo la competencia y la complementariedad influyen en la localización de los centros de mercado.
+
+Metodología:
+
+Berry utiliza una metodología empírica para su estudio, basada en la recopilación de datos de diferentes fuentes, incluyendo censos de población y estadísticas del comercio minorista. Los datos se analizan utilizando técnicas estadísticas, como el análisis de correlación y la regresión.
+
+Principales conclusiones:
+
+El trabajo de Berry concluye que la ubicación de los centros de mercado y la distribución minorista están influenciados por factores económicos y geográficos. El estudio destaca la importancia de la competencia y la complementariedad en la localización de los centros de mercado y la distribución minorista. Además, se muestra que la distribución minorista tiende a concentrarse en áreas urbanas y suburbanas debido al crecimiento de la población y la urbanización.
+
+
+### Allan Pred
+
+Referencia bibliográfica:
+Pred, A. R. (1977). Urban growth and the circulation of information: The United States system of cities, 1790-1840. Cambridge University Press.
+
+Allan R. Pred: en su libro "Urban Growth and the Circulation of Information: The United States System of Cities, 1790-1840" de 1973, Pred utilizó técnicas de análisis espacial para estudiar la circulación de información en el sistema de ciudades de Estados Unidos en el siglo XIX.
+
+Resumen general del trabajo:
+En su libro "Urban Growth and the Circulation of Information: The United States System of Cities, 1790-1840", Allan R. Pred estudia el sistema de ciudades de los Estados Unidos durante un período de crecimiento rápido y expansión territorial. El autor se centra en la forma en que la información circulaba entre las ciudades, y cómo esto influyó en el desarrollo y la organización de la red urbana.
+
+Hallazgos importantes:
+El autor encuentra que el crecimiento de las ciudades y la expansión territorial estuvieron estrechamente relacionados con la difusión de información, particularmente de la información comercial y financiera. Además, Pred identifica tres tipos de ciudades en la red urbana de los Estados Unidos: centros de información, centros de distribución y ciudades fronterizas. Estas ciudades desempeñaron roles diferentes en la circulación de información y en el desarrollo de la economía.
+
+Metodología:
+Pred utiliza un enfoque interdisciplinario para estudiar la circulación de información, incluyendo métodos de la historia económica y social, la geografía y la sociología. Utiliza una variedad de fuentes, incluyendo estadísticas demográficas y económicas, registros de comercio y correspondencia comercial.
+
+Principales conclusiones:
+El autor concluye que la circulación de información fue un factor clave en el crecimiento y desarrollo del sistema de ciudades de los Estados Unidos. La difusión de información comercial y financiera impulsó la expansión territorial y la especialización económica de ciertas regiones. Además, la organización de la red urbana reflejó la división del trabajo económico y la importancia de los centros de información en la economía.
+
+
+### Cliff y Ord
+
+Cliff, A.D. y Ord, J.K. (1981). Spatial Processes: Models and Applications. Pion Limited, Londres.
+
+Cliff and Ord: en su libro "Spatial Processes: Models and Applications" de 1981, Cliff y Ord presentaron una serie de técnicas de análisis espacial, incluyendo el promedio del vecino más cercano, el análisis de densidad kernel y la elipse de desviación estándar.
+
+Resumen general del trabajo:
+
+Spatial Processes: Models and Applications, es un libro clásico y fundamental en el campo del análisis espacial. Los autores, Andrew D. Cliff y Keith Ord, presentan una revisión sistemática de los modelos espaciales, las técnicas y las aplicaciones. El libro está diseñado para proporcionar una comprensión detallada y accesible de la teoría espacial y su aplicación en diversos campos como la geografía, la economía, la ecología, la sociología y la planificación urbana.
+
+Hallazgos importantes:
+
+Los autores presentan una amplia gama de modelos espaciales y técnicas para analizar y comprender los procesos espaciales. Uno de los hallazgos importantes del libro es la presentación de una amplia gama de modelos espaciales, que van desde los más simples hasta los más complejos, para analizar y comprender los procesos espaciales. Además, el libro enfatiza la importancia de los datos espaciales en la investigación y la necesidad de técnicas estadísticas espaciales adecuadas para analizar estos datos.
+
+Metodología:
+
+Los autores comienzan el libro con una revisión de los conceptos básicos y la teoría de la estadística espacial. A continuación, presentan una serie de modelos espaciales, que incluyen modelos de dependencia espacial, modelos de interacción espacial y modelos de difusión espacial. El libro también discute una amplia variedad de técnicas estadísticas espaciales, incluyendo las técnicas de estimación, las técnicas de inferencia y las técnicas de modelado.
+
+Principales conclusiones:
+
+Spatial Processes: Models and Applications, es una obra fundamental en el campo del análisis espacial y presenta una revisión sistemática y detallada de los modelos espaciales, las técnicas y las aplicaciones. El libro enfatiza la importancia de los datos espaciales en la investigación y la necesidad de técnicas estadísticas espaciales adecuadas para analizar estos datos. Los autores presentan una amplia variedad de modelos espaciales y técnicas estadísticas espaciales, y proporcionan una guía práctica para su aplicación en diversos campos. En resumen, el libro de Cliff y Ord es una obra clásica que sigue siendo relevante hoy en día y es una referencia esencial para cualquier persona que trabaje en el campo del análisis espacial.
+
+### Getis, A., & Ord
+
+Referencia bibliográfica:
+Getis, A., & Ord, J. K. (1992). The analysis of spatial association by use of distance statistics. Geographical Analysis, 24(3), 189-206.
+
+Getis and Ord: en su obra "The Analysis of Spatial Association by Use of Distance Statistics" de 1992, Getis y Ord describieron el índice de correlación espacial de Moran, una medida de la asociación espacial entre variables.
+
+Resumen general del trabajo:
+En este artículo, Getis y Ord presentan una metodología para el análisis de la asociación espacial entre variables basada en estadísticas de distancia. Los autores argumentan que la medida de correlación espacial conocida como el índice de Moran no es adecuada para todas las situaciones, por lo que proponen una alternativa basada en estadísticas de distancia, como el índice de G. El enfoque propuesto se basa en la identificación de puntos calientes y puntos fríos, y en la evaluación de la significancia estadística de estos patrones.
+
+Hallazgos importantes:
+Los autores muestran que las estadísticas de distancia pueden ser útiles para el análisis de la asociación espacial en situaciones en las que el índice de Moran no es adecuado. Además, se demuestra que la estadística de distancia propuesta por los autores, el índice de G, es capaz de detectar patrones de asociación espacial que el índice de Moran no puede.
+
+Metodología:
+La metodología propuesta por Getis y Ord se basa en la construcción de una matriz de pesos que refleje la distancia entre cada par de puntos en el estudio. A partir de esta matriz, se calculan estadísticas de distancia que miden la asociación espacial entre las variables. En particular, los autores proponen el uso del índice de G, que mide la asociación espacial entre valores extremos de una variable y se puede utilizar para identificar puntos calientes y puntos fríos.
+
+###Anselin, L. (1988)
+
+Referencia bibliográfica: Anselin, L. (1988). Spatial econometrics: Methods and models (Vol. 4). Springer Science & Business Media.
+
+Anselin: en su trabajo "Spatial Econometrics: Methods and Models" de 1988, Anselin presentó una serie de técnicas de análisis espacial, incluyendo la regresión espacial y el análisis de puntos calientes y puntos fríos.
+
+Resumen general del trabajo: El trabajo de Anselin de 1988, "Spatial Econometrics: Methods and Models", es una obra clave en el campo de la econometría espacial. El objetivo principal del libro es proporcionar una introducción a la teoría y la metodología de la econometría espacial y presentar una serie de modelos econométricos que tienen en cuenta la presencia de la dependencia espacial en los datos. El libro se enfoca en la aplicación de técnicas estadísticas para analizar datos espaciales y tiene como objetivo brindar una comprensión profunda del papel de la dimensión espacial en la modelación econométrica.
+
+Hallazgos importantes: Uno de los hallazgos más importantes del trabajo de Anselin es que la dependencia espacial es un fenómeno común en los datos económicos y sociales. Además, Anselin demuestra que la ignorancia de la dependencia espacial puede conducir a estimaciones ineficientes y sesgadas en los modelos econométricos.
+
+Metodología: Anselin presenta una serie de técnicas de modelado econométrico que tienen en cuenta la dependencia espacial, como los modelos de regresión espacial, los modelos de autoregresión espacial, los modelos de corrección espacial y los modelos de autoregresión de vectores espaciales. También se discuten técnicas de estimación y pruebas de hipótesis para estos modelos.
+
+Principales conclusiones: En general, Anselin concluye que la incorporación de la dimensión espacial en los modelos econométricos es fundamental para comprender los procesos económicos y sociales. Asimismo, el autor resalta que la econometría espacial no solo es relevante para los estudios académicos, sino que también tiene importantes aplicaciones en la economía real.
+
+
+
+Peter Haggett: en su obra "Locational Analysis in Human Geography" de 1965, Haggett presentó el enfoque de la teoría de la localización, que utilizaba técnicas de análisis espacial para estudiar la distribución de actividades humanas en el espacio.
+
+
+John Snow: en su trabajo "On the Mode of Communication of Cholera" de 1855, Snow utilizó el análisis espacial para identificar el origen del brote de cólera en Londres, demostrando que la enfermedad se propagaba a través del agua contaminada.
+
+
+¿Qué trabajos se han escrito sobre análisis espacial del turismo en relación con la administración y planificación de esta actividad en el mundo desde 2010?
+
+¿Cuáles son los objetivos, métodos y principales conclusiones de dichos estudios?
+
+¿Qué trabajos se han escrito sobre análisis espacial del turismo en relación con la administración y planificación de esta actividad para México?
+
+¿Cuáles son los objetivos, métodos y principales conclusiones de los estudios para México?
+
+Desde el año 2010, se han publicado diversos estudios sobre análisis espacial del turismo en todo el mundo, incluyendo México. El turismo se ha convertido en una actividad económica importante en México, contribuyendo significativamente al PIB y empleo en el país.
+
+Pick et. al (2005) analizaron el desarrollo turístico en México y sus patrones espaciales a través de la relación entre el turismo y la economía nacional, la dependencia del turismo en ciertas regiones y la concentración espacial de la actividad turística. Su análisis muestra que la actividad turística se concentra en ciertas regiones y no existe dependencia económica excesiva del turismo en algunas áreas, lo que puede llevar a vulnerabilidades económicas y ambientales en caso de una disminución en la demanda turística.
+
+De igual modo, De la Cruz, et. al (2010) examinaron el caso de México por medio de la relación entre el turismo y crecimiento económico de México e identificando los principales factores que impulsan el crecimiento económico a través del turismo. Este análisis demuestra que el turismo tiene un impacto positivo en el crecimiento económico de México. A su vez, el gasto turístico y la inversión en turismo tienen un efecto significativo en el crecimiento económico a nivel estatal, mientras que la infraestructura turística también tiene un efecto positivo en el crecimiento económico, aunque menos significativo.
+
+En cuanto a los patrones espaciales de las atracciones turísticas en México, es importante tener en cuenta los factores que influyen en estos patrones. Range, et. al (2020), por ejemplo, examinaron la distribución espacial de la intensidad de la actividad turística en Extremadura, España, y su relación con las características geográficas, socioeconómicas y turísticas de la región. Implementaron la densidad de establecimientos turísticos como indicador de la intensidad turística y se realizó un análisis espacial de esta variable utilizando técnicas de estadística espacial como el índice de Moran. Los autores descubrieron que la intensidad turística estaba relacionada con la accesibilidad, la presencia de patrimonio cultural y natural, y el clima. Esto sugiere que factores similares podrían influir en los patrones espaciales de las atracciones turísticas en México.
+
+Asimismo, en el estudio de Chettiparamb y Thomas (2012), se examinó la relación entre el turismo y la planificación espacial y cómo se puede utilizar la planificación espacial para gestionar y regular el turismo. Los autores argumentan que la planificación espacial puede ser una herramienta efectiva para abordar los desafíos y oportunidades del turismo en una región determinada. A su vez, discuten la importancia de la participación de la comunidad y la cooperación entre diferentes sectores y partes interesadas en la planificación turística.
+
+En general, la comprensión de los patrones espaciales del turismo en México es crucial para el desarrollo sostenible del turismo y la mejora de la calidad de vida de las comunidades locales. La planificación espacial y la participación de la comunidad y la cooperación entre diferentes sectores y partes interesadas son fundamentales para la planificación turística efectiva.
+
+
+o	Wang, Y.;, Wu, X.;, Liu, Z.;, Chen, H.;, Zhao, Y., Sun, W., Yu, Z., Yu, K., Zhang, W., Wu, J., Wang, Y., Wu, X., Liu, Z., Chen, H., & Zhao, Y. (2022). Spatial Patterns of Tourist Attractions in the Yangtze River Delta Region. Land 2022, Vol. 11, Page 1523, 11(9), 1523. https://doi.org/10.3390/LAND11091523
+
+•	Idea principal: se examinaron los patrones espaciales de las atracciones turísticas en la región del delta del río Yangtze en China. 
+
+•	Metodología: Incluye la recopilación de datos de 35 ciudades en la región y su posterior análisis mediante técnicas de análisis de datos espaciales y estadísticos.
+
+•	Resultados: La mayoría de las atracciones turísticas se concentraban en las ciudades más grandes de la región, como Shanghai, Nanjing y Hangzhou. Además, se encontró que las atracciones turísticas se agrupaban en ciertas áreas geográficas específicas, lo que sugiere que la ubicación geográfica puede ser un factor importante en la selección de las atracciones turísticas. También se descubrió que los patrones espaciales de las atracciones turísticas estaban influenciados por factores como la accesibilidad y la infraestructura turística, lo que sugiere que estos factores pueden desempeñar un papel importante en la planificación del turismo en la región.
+
+•	Conclusión: Sugiere que comprender los patrones espaciales de las atracciones turísticas en una región puede ayudar a los planificadores turísticos a identificar áreas que requieren una mayor inversión en infraestructura turística y promoción para atraer a más visitantes a la región.\ 
+
+
+o	Chettiparamb, A., & Thomas, H. (2012). Tourism and spatial planning. Journal of Policy Research in Tourism, Leisure and Events, 4(3), 215–220. https://doi.org/10.1080/19407963.2012.726157
+
+•	Idea principal: Se examina la relación entre el turismo y la planificación espacial y cómo se puede utilizar la planificación espacial para gestionar y regular el turismo. Los autores argumentan que la planificación espacial puede ser una herramienta efectiva para abordar los desafíos y oportunidades del turismo en una región determinada.
+
+•	Metodología: Utiliza una revisión de literatura para analizar cómo se ha investigado la relación entre el turismo y la planificación espacial. Los autores examinan la literatura académica existente para identificar enfoques y estrategias de planificación espacial que se han utilizado en diferentes lugares del mundo. 
+
+• Resultados: La planificación espacial es un componente crucial de la gestión turística sostenible y algunas de las estrategias y enfoques de planificación espacial que se discuten incluyen la zonificación turística, la gestión de recursos naturales y culturales, y la promoción de actividades turísticas alternativas. También se destaca la importancia de la participación de la comunidad y la cooperación entre diferentes sectores y partes interesadas en la planificación turística. 
+
+• Conclusión: La planificación espacial debe ser una parte integral de cualquier estrategia de turismo sostenible y que se necesita una planificación cuidadosa y a largo plazo para maximizar los beneficios económicos y sociales del turismo sin comprometer la calidad de vida de los residentes locales y la sostenibilidad a largo plazo de la región.\ 
+
+o	Range, M. C. R., Rivero, M. S., & Hernández, J. R. (2020). A Spatial Analysis of Intensity in Tourism Accommodation: An Application for Extremadura (Spain). Economies 2020, Vol. 8, Page 28, 8(2), 28. https://doi.org/10.3390/ECONOMIES8020028
+
+• Idea principal: Analizar la distribución espacial de la intensidad de la actividad turística en Extremadura y su relación con las características geográficas, socioeconómicas y turísticas de la región.
+
+•	Metodología: Se utilizó la densidad de establecimientos turísticos como indicador de la intensidad turística y se realizó un análisis espacial de esta variable utilizando técnicas de estadística espacial como el índice de Moran y la regresión geográficamente ponderada (GWR).
+
+• Resultados: El análisis espacial muestra que la intensidad turística en Extremadura está altamente concentrada en las áreas urbanas y turísticas más desarrolladas, como la ciudad de Cáceres y el Parque Natural de Monfragüe. También se encontró una relación significativa entre la intensidad turística y variables como la accesibilidad, la población y el número de atracciones turísticas.
+
+• Conclusión: El análisis espacial puede ser una herramienta útil para la planificación y gestión turística, permitiendo identificar áreas de alta intensidad turística y áreas con potencial para el desarrollo turístico. Además, los resultados pueden ser útiles para la toma de decisiones en políticas públicas y estrategias de desarrollo turístico en Extremadura y otras regiones similares.\ 
+
+
+<div style="text-align: left"> <div/>
+
+*3.-¿Qué trabajos se han escrito sobre análisis espacial del turismo en relación con la administración y planificación de esta actividad para México?*
+
+*4.-¿Cuáles son los objetivos, métodos y principales conclusiones de los estudios para México?*
+
+<div style="text-align: justify"> <div/>
+
+o		Pick, J. B., Hettrick, W. J., Butler, E. W., & Funakoshi, K. (2005). Tourism in Mexico: Its Development, Dependency, and Spatial Patterns. SSRN Electronic Journal. https://doi.org/10.2139/SSRN.275592
+
+• Idea principal: Analizar el desarrollo turístico en México y sus patrones espaciales, examinando la relación entre el turismo y la economía nacional, la dependencia del turismo en ciertas regiones y la concentración espacial de la actividad turística.
+
+•	Metodología: Se utilizó una combinación de datos cuantitativos y cualitativos para analizar la evolución del turismo en México desde los años 60 hasta la década de 2000. Se examinaron las políticas gubernamentales, los factores económicos, sociales y culturales y los patrones espaciales de la actividad turística.
+
+•	Resultados: El análisis muestra que el turismo se ha convertido en una industria importante en México, contribuyendo significativamente al PIB y al empleo en el país. Sin embargo, también se encontró que la actividad turística se concentra en ciertas regiones y que hay una dependencia económica excesiva del turismo en algunas áreas, lo que puede llevar a vulnerabilidades económicas y ambientales en caso de una disminución en la demanda turística.
+
+•	Conclusiones: Se argumenta que es necesario un enfoque más equilibrado y sostenible del desarrollo turístico en México, que tome en cuenta la diversificación económica, la protección del medio ambiente y la participación de las comunidades locales. También se destaca la importancia de la planificación y gestión turística a nivel local y regional para garantizar la sostenibilidad y la equidad en el desarrollo turístico en México
+
+o		De la Cruz Gallegos, J. L., Canfield Rivera, C., & Núñez Rivera, J. A. (2010). Drivers of Economic Growth: The Case for Tourism in Mexico. Revista Brasileira de Economia de Empresas, 10(2), 38–53. https://portalrevistas.ucb.br/index.php/rbee/article/view/3100
+
+•	Idea principal: analizar la relación entre el turismo y el crecimiento económico de México, identificando los principales factores que impulsan el crecimiento económico a través del turismo.
+
+•	Metodología: se utiliza un modelo econométrico y se utilizan datos a nivel estatal en México para el período de 1995 a 2010. Se examinan los efectos de variables como el gasto turístico, la inversión en turismo, la infraestructura turística y otros factores económicos y sociodemográficos en el crecimiento económico de los estados mexicanos.
+
+•	Resultados: El análisis demuestra que el turismo tiene un impacto positivo en el crecimiento económico de México. Se encontró que el gasto turístico y la inversión en turismo tienen un efecto significativo en el crecimiento económico a nivel estatal, mientras que la infraestructura turística también tiene un efecto positivo en el crecimiento económico, aunque menos significativo.
+
+•	Conclusión: El turismo tiene el potencial de ser un motor importante del crecimiento económico en México, y destacan la importancia de políticas públicas y privadas para fomentar el desarrollo del turismo en el país. También se destaca la necesidad de invertir en infraestructura turística, mejorar la calidad de los servicios turísticos y promover la diversificación de los productos turísticos para maximizar los beneficios económicos del turismo en México.
+
+
+
+
+
+Other information sources
+
+[ATLAS INTERACTIVO DE LAS ÁREAS NATURALES PROTEGIDAS DE MÉXICO](http://sig.conanp.gob.mx/website/interactivo/atlas/atlas_anp.htm)
+
+[Subsistema de Información ANP](https://simec.conanp.gob.mx/informacion.php)
+
+[SIG CONANP](http://sig.conanp.gob.mx/website/pagsig/).
+
+
+
+Centros Integralmente Planeados, FONATUR
+
+Huatulco, Oax. e Ixtapa Zihuatanejo
+
+https://www.gob.mx/fonatur/acciones-y-programas/huatulco
+
+https://www.gob.mx/fonatur/acciones-y-programas/ixtapa
+
+
+
+VISUALIZACIÓN DEL TURISMO EN EL ATLAS DE COMPLEJIDAD ECONÓMICA DE MÉXICO
+
+Códigos SCIAN:
+
+SCIAN 7211: Hoteles, moteles y similares
+SCIAN 7221: Restaurantes con servicio completo
+SCIAN 4811: Transporte aéreo regular 
+
+Otros posibles códigos vinculados:
+
+4811 Transporte turístico por tierra.
+4872 Transporte turístico por agua.
+4879 Otro transporte turístico.
+5615 Agencias de viajes y servicios de reservaciones.
+7212 Campamentos y albergues recreativos.
+7213 Pensiones y casas de huéspedes, y departamentos y casas amueblados con servicios de hotelería.
+7222 Restaurantes de autoservicio, comida para llevar y otros restaurantes con servicio limitado.
+7223 Servicios de preparación de alimentos por encargo.
+7224 Centros nocturnos, bares, cantinas y similares.
+
+
+
+https://www.entornoturistico.com/centros-integralmente-planeados-cip/
+
+https://apps1.semarnat.gob.mx:8443/dgeia/compendio_2015/dgeiawf.semarnat.gob.mx_8080/ibi_apps/WFServlet778d.html#:~:text=Un%20Centro%20Integralmente%20Planeado%20(CIP,%2C%20urbanos%2C%20ambientales%2C%20sociales%20y
+https://elceo.com/bienes-raices/los-centros-integralmente-planeados-el-barril-sin-fondo-del-fonatur/
+
+
+In her book, the UNWTO [-@UNWTO2014] declare the next classification:
+
+Table 5.11 North American Industry Classification System (NAICS)
+industries identified as Canadian tourism industries
+*Accommodation*
+NAICS 7211 Traveller accommodation.
+NAICS 7212 Recreational Vehicle (RV) Parks and recreational camps.
+
+*Food and Beverage Services*
+NAICS 7221 Full-service restaurants.
+NAICS 7222 Limited-service eating places.
+NAICS 7224 Drinking places (alcoholic beverages).
+
+*Recreation and Entertainment*
+NAICS 5121 Motion picture and video industries.
+NAICS 7111 Performing arts companies.
+NAICS 7112 Spectator sports.
+NAICS 7115 Independent artists, writers and performers.
+NAICS 7121 Heritage institutions.
+NAICS 7131 Amusement parks and arcades.
+NAICS 7132 Gambling industries.
+NAICS 7139 Other amusement and recreation industries.
+
+*Transportation*
+NAICS 4811 Scheduled air transportation.
+NAICS 4812 Non-scheduled air transportation.
+NAICS 4821 Rail transportation.
+NAICS 4831 Deep sea, coastal and great lakes water transport.
+NAICS 4832 Inland water transportation.
+NAICS 4851 Urban transit systems.
+NAICS 4852 Interurban and rural bus transportation.
+NAICS 4853 Taxi and limousine service.
+NAICS 4854 School and employee bus transportation.
+NAICS 4855 Charter bus industry.
+NAICS 4859 Other transit and ground passenger transportation.
+NAICS 4871 Scenic and sightseeing transportation, land.
+NAICS 4872 Scenic and sightseeing transportation, water.
+NAICS 4879 Scenic and sightseeing transportation, other.
+NAICS 5321 Automotive equip. rental and leasing.
+
+*Travel Services*
+NAICS 5615 Travel arrangement and reservation services.
+Source: Kotsovos, D. (2007).
+
+
+
+INEGI2018_cst
+
+Clave SCIAN	Descripción de la actividad
+561510	Servicios de administración de propiedades inmobiliarias por cuenta de terceros
+711212	Diseño de exposiciones y montajes
+713930	Servicios de organización de convenciones y exposiciones
+721110	Hospedaje en hoteles de 1 a 5 estrellas
+721120	Hospedaje en moteles, villas, bungalows y similares
+721191	Hospedaje en hoteles con otros servicios integrados
+721199	Otros servicios de hospedaje temporal
+721310	Campamentos y albergues recreativos
+722310	Servicios de preparación de alimentos y bebidas en restaurantes con servicio completo
+722320	Servicios de preparación de alimentos y bebidas en restaurantes con servicio de comida rápida
+722330	Servicios de preparación de alimentos y bebidas en restaurantes de autoservicio
+722410	Bares y cantinas
+722511	Servicios de banquetes y otros servicios de preparación de alimentos con instalaciones para banquetes
+722513	Servicios de organización de eventos sin instalaciones para banquetes
+811111	Servicios combinados de oficina y apoyo administrativo
+811411	Servicios de reservaciones y actividades relacionadas con la reserva de viajes
+812331	Servicios de guías de turistas y traductores
+
+
+[@UTSA2023]
+483112 Deep Sea Passenger Transportation
+483114 Coastal and Great Lakes Passenger Transportation
+483212 Inland Water Passenger Transportation
+487110 Scenic and Sightseeing Transportation, Land
+487210 Scenic and Sightseeing Transportation, Water
+488999 All Other Support Activities for Transportation
+561510 Travel Agencies
+561520 Tour Operators
+561591 Convention and Visitors Bureaus
+713110 Amusement and Theme Parks
+713120 Amusement Arcades
+713210 Casinos (except Casino Hotels)
+713290 Other Gambling Industries
+713910 Golf Courses and Country Clubs
+713920 Skiing Facilities
+713930 Marinas
+713940 Fitness and Recreational Sports Centers
+713950 Bowling Centers
+713990 All Other Amusement and Recreation Industries
+721110 Hotels (except Casino Hotels) and Motels
+721120 Casino Hotels
+721191 Bed-and-Breakfast Inns
+721211 RV (Recreational Vehicle) Parks and Campgrounds
+721214 Recreational and Vacation Camps (except Campgrounds)
+722511 Full-Service Restaurants
+722513 Limited-Service Restaurants
+722514 Cafeterias, Grill Buffets, and Buffets
+722515 Snack and Nonalcoholic Beverage Bars
+
+
+## Method development
+
+In the end, we decided to use QGIS instead of R for practical reasons: it is faster and easier. For each CIP several information layers were created, all of them in GeoPakage format (`.gpkg`) to easily digital storage:
+
+i) Municipality layer: CIPname_mun.gpkg
+ii) AGEB layer with tourism stablishment count by year: CIPname_agebs.gpkg
+iii) Tourism establishments by year: CIPname_stb_year.gpkg
+iv) Standard Deviational Ellipse layer: CIPname_sde_year.gpkg
+v) Kernel density layer: CIPname_htm_year.gpkg
+
+
+
+Querry on QGIS
+
+"CLASE_ACT" = '7211%' OR 
+"CLASE_ACT" = '7212%' OR 
+"CLASE_ACT" = '7221%' OR 
+"CLASE_ACT" = '7222%' OR 
+"CLASE_ACT" = '7224%' OR 
+"CLASE_ACT" = '5121%' OR 
+"CLASE_ACT" = '7111%' OR 
+"CLASE_ACT" = '7112%' OR 
+"CLASE_ACT" = '7115%' OR 
+"CLASE_ACT" = '7121%' OR 
+"CLASE_ACT" = '7131%' OR 
+"CLASE_ACT" = '7132%' OR 
+"CLASE_ACT" = '7139%' OR 
+"CLASE_ACT" = '4811%' OR 
+"CLASE_ACT" = '4812%' OR 
+"CLASE_ACT" = '4821%' OR 
+"CLASE_ACT" = '4831%' OR 
+"CLASE_ACT" = '4832%' OR 
+"CLASE_ACT" = '4851%' OR 
+"CLASE_ACT" = '4852%' OR 
+"CLASE_ACT" = '4853%' OR 
+"CLASE_ACT" = '4854%' OR 
+"CLASE_ACT" = '4855%' OR 
+"CLASE_ACT" = '4859%' OR 
+"CLASE_ACT" = '4871%' OR 
+"CLASE_ACT" = '4872%' OR 
+"CLASE_ACT" = '4879%' OR 
+"CLASE_ACT" = '5321%' OR 
+"CLASE_ACT" = '5615%' 
+
+
+
+
+
+### Average Nearest Neighbor Analysis
+
+We use the `spatialEco` package with the function `nni()`. It requires a `sf` object that cointains points. We load the database with:
+
+```{r}
+#Librerías
+library(sf)
+library(spatialEco)
+```
+
+```{r}
+can <- st_read("database/shp/denue_muncip_2022/cancun/cancun_2022_point.shp")
+hua <- st_read("database/shp/denue_muncip_2022/huatulco/huatulco_2022_point.shp")
+ixt <- st_read("database/shp/denue_muncip_2022/ixtapa/ixtapa_2022_point.shp")
+lor <- st_read("database/shp/denue_muncip_2022/loreto/loreto_2022_point.shp")
+cab <- st_read("database/shp/denue_muncip_2022/los_cabos/los_cabos_2022_point.shp")
+```
+
+We calculate the ANNI whit the next code:
+
+```{r}
+nni_can <- spatialEco::nni(can)
+nni_hua <- spatialEco::nni(hua)
+nni_ixt <- spatialEco::nni(ixt)
+nni_lor <- spatialEco::nni(lor)
+nni_cab <- spatialEco::nni(cab)
+```
+
+The results can be seen in with:
+
+```{r}
+nni_can$NNI
+nni_hua$NNI
+nni_ixt$NNI
+nni_lor$NNI
+nni_cab$NNI
+```
+
+Indexes from all CPI are less than 1, which mean a non-random spatial patter, therefore there are spatial concentrations patterns in the way tourims stablishments are distributed in all CPI. The CPI with the strongest and weakest concentration patter are Huatulco and Ixtapa-Zihuatanejo.
+
+Nevertheless, we decide using QGIS instead of R because consistency. We calculate ANNI with the vector analysis tool called nearest neighbor analysis. Calculating ANNI in QGIS:
+
+1. We use a reproyetected and simple point (not multipoint) layer to calculations.
+2. We report data in a table with all output statistics.
+
+
+### Kernel Density
+
+With the same package and `sf.kde()` function, but will be better in QGIS. But, we decide use QGIS to calculate kernel density maps. The set up to heat maps in QGIS were:
+
+i) Radius: 1,500 meters to guarantee local cluster detection 
+ii) Pixel size: 30
+ii) Resulting layers were rendered in single band pseudocolor with discrete interpolation and the information were classified in 4 equal intervals.  
+
+We use reproyected layers into point (not multipoints).
+
+
+
+
+
+
+
+
+
+* Hot Spot Analysis: the analysis were carried out though G* index that can be computed with `rgeoda` package with the `local_gstar()` function.
+
+
+
+
+### Standard deviation ellipse
+
+"Sometimes we are interested in learning about the central tendency and distribution of a particular feature. For example, given we are able to visualize the number of bike shares in different county on the map, we may wonder where is the central location of these event points or how spread out are them. Here, we need to apply centrographic analysis, which is the descriptive statistics that summarizes the point patterns. I will introduce two statistics: mean center and standard deviational ellipse. For the point data, the mean center computes the mean of the coordinates of longitude and latitude of these points. The standard deviational ellipse computes the directional average distance of points from the mean center along two axes, one that goes through the maximum dispersion of the spatial distribution and another that is perpendicular to it". This text was taken [from here](https://jtr13.github.io/cc21fall2/introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html)
+
+
+
+
+* Standard Deviational Ellipse: with `aspace`  package and the `calc_sde()` function, but the package were deprecated.
+
+
+
+
+Concentration of tourism activities in Mexico is the result of at least two factors. First, uneven allocation of natural, cultural and other points of tourism interest. Second, government planning (of absent of it), as CIP have been [@Pick2005; @Cruz2010].
+
+
+
+Chettiparamb and Thomas [-@Chettiparamb2012] recognize five ways in which spatial planing could improve social and economic life by (p. 216): i) mitigating negative externalities, ii) providing a coordinating mechanism among social actors, iii) providing ways to share information and facilitate communication, iv) promoting collective decisions and v) a common language to discus and resolve problems. This is particularly important in the context of conflict management related to the resistance and discomfort of tourism in recent years [@Ghermandi2020], or to determinate where and what kind of infrastructure should be bought to maximize financial returns [@Kang2018].
+
+
+
+
+ Since late sixties, Mexican government have promoted planned development of tourism projects headed by National Fund for Tourism Promotion (FONATUR) in order to reach regional development and foreign exchange inflows. The most notable projects are _Centros Integralmente Planeados_ or "fully planned centers" (CIP), which have not only regional impact, but national [@Torres2008].
+
+_More for CIPS_
+
