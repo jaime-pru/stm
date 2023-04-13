@@ -3,8 +3,8 @@ title: "Spatial patterns on turism atractions in Mexico State"
 author: "Jaime A. Prudencio-Vázquez"
 date: "`r Sys.Date()`"
 output:
-  word_document: default
   html_document: default
+  word_document: default
 bibliography: D:\\stm\\bibligraphy\\bibliography.bib
 csl: D:\\stm\\bibligraphy\\regional-science-and-urban-economics.csl
 ---
@@ -89,77 +89,71 @@ $$
 $$
 Beside, $d_i$ is the observed distance between two nearest points, $n$ is the total number of points, $A$ correspond to the rectangular area that cover all points. An ANNI value less than 1 indicates clustering, meanwhile an ANNI more than 1 reflects dispersion [@spatialEco2021].
 
-Standard Deviational Ellipse (SDE) is a measure that show graphically  dispertion or spread of a point data set [@Yuill1971; @ESRI2023b] which is useful to observe their spatial distribution. It is a ellipse that surround sixty three percent of the point distribution. Here we use Yuill method, wich do not correct the degree of freedom, unless it be specify. Here we use the QGIS plug-in developed by Tveite [-@tveitesde2016].
-
-Following to Wang et al. [-@Wang2022] the SDE is constructed first identifying the center made of two coordinates ($SDE_x$, $SDE_y$) of the ellipse using arithmetic mean center:
+Standard Deviational Ellipse (SDE) is a measure that show graphically  dispersion or spread of a point data set [@Yuill1971; @ESRI2023b] which is useful to observe their spatial distribution. It is a ellipse that surround sixty three percent of the point distribution. Here we use Yuill method with QGIS plug-in developed by Tveite [-@tveitesde2016]. Following to Wang et al. [-@Wang2022] the SDE is constructed first identifying the center made of two coordinates ($SDE_x$, $SDE_y$) of the ellipse using arithmetic mean center for $x$ ($SDE_x$) and $y$ ($SDE_y$, respectively:
 
 $$
-SDE_x=\sqrt{\frac{\sum^n_{i=1}(a_i)^2}{n}}
-$$
-$$
+SDE_x=\sqrt{\frac{\sum^n_{i=1}(a_i)^2}{n}} \\
 SDE_y=\sqrt{\frac{\sum^n_{i=1}(b_i)^2}{n}}
 $$
-
 Where $a_i=x_i-\bar x$ and $b_y=y_i-\bar y$. Again, following to Wang et al. [-@Wang2022], rotation of the ellipse is calculated as follow:
 
 $$
 tan \theta=\frac{A+B}{C}
 $$
+
 Where:
+$$
+\begin{aligned}
+A &=\sum_{i=1}^n a_i^{2}-\sum_{i=1}^n b_i^{2}\\
+B &= \sqrt{(\sum_{i=1}^n a_i^{2}-\sum_{i=1}^n b_i^{2})^2+4(\sum^i_{i=1}a_ib_i)^2}\\
+C &=2\sum^i_{i=1}a_ib_i
+\end{aligned}
+$$
+The length of the $x$ ($\sigma_x$) and $y$ ($\sigma_y$)axis are:
 
 $$
-A=\sum_{i=1}^n a_i^{2}-\sum_{i=1}^n b_i^{2}
+\begin{aligned}
+\sigma_x &=\sqrt{2}\sqrt{\frac{\sum^n_{i=1}(a_icos\theta-b_isin\theta)^2}{n}}\\
+\sigma_y &=\sqrt{2}\sqrt{\frac{\sum^n_{i=1}(a_isin\theta-b_icos\theta)^2}{n}}
+\end{aligned}
 $$
-
-$$
-B= \sqrt{(\sum_{i=1}^n a_i^{2}-\sum_{i=1}^n b_i^{2})^2+4(\sum^i_{i=1}a_ib_i)^2}
-$$
-
-And
-
-$$
-C=2\sum^i_{i=1}a_ib_i
-$$
-The length of the the X and Y axis are:
-
-$$
-\sigma_x=\sqrt{2}\sqrt{\frac{\sum^n_{i=1}(a_icos\theta-b_isin\theta)^2}{n}}
-$$
-$$
-\sigma_y=\sqrt{2}\sqrt{\frac{\sum^n_{i=1}(a_isin\theta-b_icos\theta)^2}{n}}
-$$
-Results of Spatial kernel density (SKD) is showed in a heatmap, a visualization of clustering based on the quartic kernel density of points density. The function of kernel density could be written as [@LuoCao2019: 6]:
+Spatial kernel density (SKD) is a visualization of clustering based on the quartic kernel density of points density. The function of kernel density could be written as [@LuoCao2019: 6]:
 
 $$
 f(j)=\frac {1}{h^2}\sum[\frac{3}{\pi}(1-\frac{d_{ij}^2}{h^2})^2]
 $$
 
+We present results of SKD with heatmap, a geographic data visualization that show spatial concentration as more colored areas in a map. We construct heatmaps with interpolation tools in QGIS using a input point vector layer which result in a raster layer with density values. Raster layer is representet with this specific settings: singleband pseudocolor as render type where min and max values are default and linear interpolation with continuous classification.
 
-The local indicator of spatial correlation is the local Moran index ($I_i$). Here we use the local spatial association statistic of Moran, originally proposed by Anselin [-@Anselin1995], and has the form of:
+Finally, the used local indicator of spatial correlation is the local Moran index ($I_i$), originally proposed by Anselin [-@Anselin1995]. It has the form of:
 
 $$
 I_i = c \cdot z_i \sum_j w_{ij} z_j
 $$
 
-The notation above corresponds to Anselin [-@Anselin2020local1], in which $I_i$ is the Moran's Local Spatial Association Statistic, $z_i$ and $z_j$ corresponds to the value of the standardized variable in territorial unit $i$ and $j$, which is usually employment, while $w_{ij}$ is each element of the row-standardized spatial weight matrix, and finally $c$ is a constant given by $\sum_i z_i^2$, the sum of the standardized variable value.
+Notation above corresponds to Anselin [-@Anselin2020local1], in which $I_i$ is the Moran's Local Spatial Association Statistic, $z_i$ and $z_j$ corresponds to the value of the standardized variable in territorial unit $i$ and $j$, while $w_{ij}$ is each element of the row-standardized spatial weight matrix, and finally $c$ is a constant given by $\sum_i z_i^2$, the sum of the standardized variable value.
 
-The $I_i$ can be represented in cluster maps with four categories of territorial units: i) clusters of territorial units with high variable values surrounded by neighboring territorial units also with high values (High-High clusters); ii) clusters of territorial units with low variable values surrounded by neighbors with the same characteristic (Low-Low clusters); iii) clusters of territorial units with low variable values surrounded by neighbors with high values (Low-High clusters); and iv) clusters of territorial units with a high value variable surrounded by others with a low value (High-Low clusters).
+The $I_i$ can be represented in cluster map with four categories of territorial units: i) clusters of territorial units with high variable values surrounded by neighboring territorial units also with high values (High-High clusters); ii) clusters of territorial units with low variable values surrounded by neighbors with the same characteristic (Low-Low clusters); iii) clusters of territorial units with low variable values surrounded by neighbors with high values (Low-High clusters); and iv) clusters of territorial units with a high value variable surrounded by others with a low value (High-Low clusters).
 
 When "high" or "low" is mentioned here, it is in relative terms, i.e., low or high values within the range of the information used. The last two categories, the Low-High and High-Low groups, identify territorial units as spatial outliers.
 
 ## Data sourse
 
-To analyze the spatial distribution of the tourism activity in the five integrally planed centers it is used information about establishment location linked to tourism sector. According to WNWTO and ILO [@UNWTO2014], there are 29 activities at industry group level (2 digits) in the North America Industrial Classification System (NACIS) that concern hospitality and tourism, which are called Tourism Characteristic Activities. The selected and used classification group the 29 activities in five types: i) accommodation, ii) food and beverage services, iii) recreation and entertainment, iv) transportation and v) travel services.
+To analyze the spatial distribution of the tourism activity in the CIP it is used information about establishment location linked to tourism sector. According to WNWTO and ILO [@UNWTO2014], there are 29 activities at industry group level (2 digits) in the North America Industrial Classification System (NACIS) that concern hospitality and tourism, which are called Tourism Characteristic Activities. The selected and used classification group the 29 activities in five types: i) accommodation, ii) food and beverage services, iii) recreation and entertainment, iv) transportation and v) travel services. Information on establishment location comes from National Statistical Directory of Economic Units (DENUE) and is provided as point vector layers, published by National Institute of Statistic and Geography (INEGI).
 
-Information on establishment location comes from National Statistical Directory of Economic Units (DENUE) what is published by National Institute of Statistic and Geography (INEGI).
+## Spatial areal unit
 
-### Spatial areal unit
+For this study, five municipalities were selected according the localization of the CIPs [@Fonatur2020]: Los Cabos y Loreto, both of them located in Baja California Sur, Ixtapa-Zihuatanejo in Zihuatanejo de Azueta municipality in Guerrero state, Cancún in Benito Juárez in Quintana Roo state and Bahías de Huatulco in Santa María Huatulco in Oaxaca state. Spatial information of the five municipalities comes from National Geostatistical Framework published by INEGI [-@INEGI2020mgn]. Using that five municipalities as overlay layer, five point layers of tourism establishments were generating in QGIS 3.22 using the clip geoprepossessing tool. To construct spatial autocorrelation indexes and clusters maps we use a first order queen spatial weight matrix.
 
-For this study, five municipalities were selected according the localization of the integrally planed centers [@Fonatur2020]: Los Cabos y Loreto, both of them located in Baja California Sur, Ixtapa-Zihuatanejo in Zihuatanejo de Azueta municipality in Guerrero state, Cancún in Benito Juárez in Quintana Roo state and Bahías de Huatulco in Santa María Huatulco in Oaxaca state.
+# 5. Results and discussion
 
-Spatial information of the five municipalities comes from National Geostatistical Framework published by INEGI [-@INEGI2020mgn]. Using that five municipalities as overlay layer, five point layers of tourism establishments were generating in QGIS 3.22 using the clip geoprosesing tool.
+¿Qué planes y proyectos turísticos existen en la región?
 
-# Results
+¿Cómo los plan buscan contribuir a resolver los problemas económicos de la región y, particularmente, del sector en dicha región?
+
+¿De qué modo los resultados contribuyen a una estrategia de fomento al turismo en la región?
+
+
 
 | Centro   turístico integralmente planeado 	| Número de establecimientos   turísticos 	|
 |---	|---	|
@@ -172,16 +166,7 @@ Spatial information of the five municipalities comes from National Geostatistica
 : Table 1. Number of tourism stablishments
 
 
-
-# 5. Results and discution
-
-¿Qué planes y proyectos turísticos existen en la región?
-
-¿Cómo los plan buscan contribuir a resolver los problemas económicos de la región y, particularmente, del sector en dicha región?
-
-¿De qué modo los resultados contribuyen a una estrategia de fomento al turismo en la región?
-
-
+# References
 
 
 
