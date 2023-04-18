@@ -1,0 +1,241 @@
+---
+title: "Spatial patterns on tourism establishments in five CIPs in Mexico, 2010-2022"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+bibliography: D:\\stm\\bibligraphy\\bibliography.bib
+csl: D:\\stm\\bibligraphy\\regional-science-and-urban-economics.csl
+---
+
+# Abtract
+
+Studies on spatial patterns of economic activity contribute to management, planning, and fostering economic performance. Investors, policymakers, and social organizations have valuable information about where and why activity is concentrated. Spatial patterns of tourism have been studied to organize tourist flow, take better advantage of existing infrastructure, plan new facilities, and promote new tourism destinations. In the late 1960s, the Central Mexican government started projects aimed at constructing large tourism facilities primarily for foreign visitors. These were called _centros integralmente planeados_ or "fully planned centers" (CIPs) and were headed by FONATUR (Fondo Nacional de Fomento al Turismo). The objective of this paper is to explore spatial distribution patterns of tourism establishments in five municipalities where the CIPs are located. This may contribute to evaluating how patterns differ among CIPs and help planners, managers, local associations, and entrepreneurs decide where other potential activities may be located and evaluate the performance of existing ones. The results show changes in distribution and orientation of establishments, as well as spatial concentration in all cases and years. All CIPs experienced a significant reduction in establishments, mainly small and medium-sized businesses.
+
+# Introduction  
+
+Between 1993 and 2021, the share of tourism in Mexico's Gross Domestic Product (GDP) has been around 8.2%. In 2019, the year before the COVID-19 pandemic, this share reached 8.5%. Almost 2.3 million people were employed in the sector, which is around 5.8% of the total employment in Mexico [@INEGI2018cn]. In 2022, 65.9 million travelers entered Mexico, 58% of whom were international tourists [@BANXICO2022].
+
+In January 2023, the balance of the international travel account of the balance of payments was positive and reached almost 2.1 billion dollars, even during the pandemic [@BANXICO2022]. Tourism has contributed to reducing the external constraint of the balance of payments, which has been a typical problem for growth in economies like Mexico [@Pick2005; @Cruz2010].
+
+The Mexican central government has actively promoted the tourism sector. In the mid-seventies, the Mexican government launched the Cancún tourism complex as the first of the "Fully Planned Centers" (CIPs) or _Centros Integralmente Planeados_. Nowadays, Cancún CIP is the best-known Mexican tourist destination in the world [@Fonatur2020].
+
+According to Tulio and Santamaría [-@Tulio2015], CIPs own 40% of coastal hotels in Mexico, attracting 20% of international tourists, generating 44 cents per dollar in tourism, owning 18% of 5-star hotels, and 54% of foreign exchange spent by visitors. They generated 172 thousand jobs in 2012. On January 2018, SECTUR registered 2.9 million rooms available for lodging. They are unevenly distributed among Mexican states, mainly in Cancún, Quintana Roo, and Los Cabos, Baja California states. These two destinations have CIPss and concentrate about 47.3% and 21.4% of rooms available on one hand, and 37.3% and 19.4% of tourist arrivals on the other [@DataTur2023]. From the five original projects, these two have been tremendously successful in the way originally planned [@Tulio2015], while the others have had heterogeneous results. 
+
+The role of planning has been recognized in regional sciences and tourism management due to the explicit spatiality of tourism resources. The spatial distribution of resource attractions and tourism establishments is a central topic in planning and management, both for government and for private sector. There is an increasing amount of studies that explore the spatial distribution of tourism activities and their links to social and economic growth [@Wang2022], conflict management between stakeholders and planning authorities aimed at tourism development and conservation [@Almeida2017; @Derek2019]. Geolocated information resources provided by social media could help with a better understanding of spatial tourist patterns and in planning building infrastructure [@Kang2018] and protecting natural areas [@Akerma2021].
+
+Knowing the spatial distribution of tourism establishments in the five CIPs could provide valuable information to managers, policymakers, and stakeholders to understand the different performances among them and foster specific areas in the CIPs by promoting new business opportunities. Furthermore, it is recognized that spatial analysis could improve social and economic life by: i) mitigating negative externalities, ii) providing a coordinating mechanism among social actors, iii) providing ways to share information and facilitate communication, iv) promoting collective decisions, and v) providing a common language to discuss and resolve problems [@Chettiparamb2012: 216]. This is particularly important in the context of conflict management related to the resistance and discomfort of tourism in recent years [@Ghermandi2020], or to determine where and what kind of infrastructure should be brought to maximize financial returns [@Kang2018].
+
+The available studies on CIPs primarily focus on either social and environmental issues or performance. However, most of these studies only concentrate on one aspect, and rarely compare the two. In terms of environmental and social issues, there have been studies conducted on specific CIPs such as Cancún [@Torres2008], Los Cabos [@Montaño2017], and Huatulco [@Monterrubio2012;@Mendoza2011]. Additionally, there have been some comparative studies conducted [@Monterrubio2018]. Nevertheless, no research has been discovered that examines and contrasts the spatial distribution of tourism businesses in CIPs in a specific manner.
+
+The objective of this article is to explore the spatial distribution patterns of tourism establishments in five CIPs that report data in the National System of Statistical Information of the Tourism Sector of Mexico, DATATUR [-@DataTur2023]: Los Cabos, Loreto, Ixtapa-Zihuatanejo, Cancún, and Bahías de Huatulco. By doing so, it is expected to obtain information on the concentration and orientation patterns of the tourism establishments, which could be used to evaluate tourism activities for planners, managers, local associations, and entrepreneurs. This information could be useful in determining where other potential activities could be located and in evaluating the performance of the existing ones.
+
+The remainder of the document is structured as follows. In Section 1, we present more details about the CIPs. In Section 2, we carry out a literature review on tourism spatial pattern analysis. In Section 3, the methods used and the data sources are explained. Section 4 presents the results and discussion on the spatial patterns found, along with some final reflections. 
+
+# 1. Fully Planned Centers in Mexico
+
+The distribution of tourism activities in Mexico is influenced by two main factors. The first one is the uneven distribution of natural, cultural, and other points of tourist interest. The second is government planning, or the absence of it, as has been shown by studies such as Pick et al. [-@Pick2005] and Cruz et al. [-@Cruz2010]. In the late 1960s, the Mexican government actively promoted planned tourism development through the CIPs project, led by the National Fund for Tourism Promotion (FONATUR). The aim was to achieve regional development and foreign exchange inflows. The size and scale of some CIPs have not only regional, but also national impact [@Torres2008].
+
+The central government led the CIPs project through feasibility studies, financial resources, and subsidies to private enterprises. The CIPs were designed as a mechanism to generate foreign exchange and promote regional development to alleviate pressures on the balance of payments. Therefore, the Bank of Mexico and the Ministry of Finance played a leading role in the original development of this project, although it was formally headed by FONATUR [@Tulio2015]. Originally, the Mexican authorities planned to construct five CIPs: Los Cabos, Loreto, Ixtapa-Zihuatanejo, Cancún, and Bahías de Huatulco. However, two more projects are currently ongoing: Bahía de Banderas and Playa Espíritu [@Fonatur2020].
+
+The results of the CIPs are unequal, with Cancún and Los Cabos being the most successful and concentrating more than half of the available rooms, while the rest of the CIPs have not had the same notable performance. Furthermore, the CIPs as a tourism promotion model has been seriously criticized due to the presence of environmental degradation, socioeconomic inequality, and a lack of economic diversification [@Montaño2017].
+
+The majority of available studies on the CIPs focus on social and environmental issues on the one hand, and performance on the other. Most of them concentrate on only one aspect and rarely compare two of them. Regarding environmental and social issues, there are studies on Cancún [@Torres2008], Los Cabos [@Montaño2017], Huatulco [@Monterrubio2012;@Mendoza2011], and some comparative studies [@Monterrubio2018].
+
+Torres and Momsen [-@Torres2008], based on an overview of public policies and interviews with key actors, analyzed the effects of the Cancún CIP on equity and regional development. They concluded that although the CIPs has been an important driver for economic growth, it has resulted in socioeconomic and environmental inequalities due to its orientation towards elite tourist destinations, resulting in local marginalization and environmental degradation in some areas. They suggest a more equitable and sustainable approach to local tourism development that takes into account the interests of local communities in making decisions on tourism management.
+
+Montaño et al. [-@Montaño2017] evaluated the performance of the Los Cabos CIP from a sustainable point of view. For them, Los Cabos has undergone rapid tourist development in the last four decades, generating significant economic benefits for the region. However, a series of challenges and problems associated with tourist development have also been identified, including environmental degradation, socioeconomic inequality, and a lack of economic diversification. 
+
+Huatulco CIP has been studied by Monterrubio et al. [-@Monterrubio2012] and Mendiza et al. [-@Mendoza2011]. The studies show people perception who lived in Huatulco CIP through a representative survey. They perceive both positive and negative impacts of tourism in their community as job creation and improvement of local infrastructure and services, but increasing living cost and cultural identity loss. The authors highlights the importance of considering the perceptions and experiences of local residents in CIP planning and management. Monterrubio et al. [-@Monterrubio2018] compare socioeconomic impacts of three CIP: Cancún, Ixtapa-Zihuatanejo, and Los Cabos. They underline economic dependence on foreign capital and a non diversified economic structure with a very little benefits to the local residents. The importance of more equitable and participatory tourism planning is highlighted in order to reduce economic dependence and improve the distribution of benefits in local communities.
+
+Regarding the performance of CIPs, some studies have focused on Ixtapa [@Hernández2006], Huatulco [@Piñon2019], and the CIPs located in the state of Baja California Sur (Los Cabos and Loreto). Hernández et al. [-@Hernández2006] conducted a survey on the image, satisfaction, and loyalty of 140 foreign tourists in Ixtapa-Zihuatanejo CIP. The results indicate that the image of the CIP is positive, with high levels of tourist satisfaction with the tourism services offered and a high intention to return. From the perspective of planning and managing smart tourist destinations, Piñón et al. [-@Piñon2019] studied Huatulco CIP using interviews and direct observation. They identified different areas where technology and innovation could improve the tourist experience, such as information management, tourism promotion, mobility, sustainability, and security. Montaño et al. [-@Montaño2019] studied disparities in local development in Los Cabos and Loreto CIPs. Despite being planned and managed by SECTUR, the performance of these CIPs as tourist destinations and their effects on local development are different: while Los Cabos has experienced rapid tourism and economic growth, Loreto has grown slowly and has opted for a more sustainable approach.
+
+This review highlights the extensive research conducted on the performance and multiple challenges faced by CIPs. While they have been found to have a positive impact on regional growth, this growth has been accompanied by issues of inequality and environmental degradation. However, no studies were found that specifically addressed and compare the spatial distribution of tourism establishments in CIPs.
+
+# 2. Studing Spatial distribution tourism activities
+
+The study of spatial distribution of economic activity has been a topic of interest for several decades, with Tobler's first law of geography [-@Tobler1970] being a key contributor to this field. There has been a lot of research focused on understanding the patterns and implications of spatial regularities in economic activity, and spatial statistics have been developed to measure and detect such regularities. This area of research has continued to evolve and expand, with ongoing efforts to better understand the causes and consequences of spatial patterns in economic activity.
+
+Spatial statistics and formal evaluation of spatial patterns rely on the seminal work of Cliff and Ord, who propose techniques for measuring spatial autocorrelation from a geographic perspective. Their contributions were further developed by Getis and Ord, who consider different types of distances involved in geographical relations. In social and economic studies, Anselin's work has been fundamental in extending the notion of spatial autocorrelation to the social sciences field and proposing new methods for detection and treatment of spatial autocorrelation through spatial econometric models.
+
+The analysis of spatial patterns is important not only in the field of regional science, but also in other fields. Spatial patterns in tourism activity have been widely studied in relation to planning, management, and economic promotion through new business opportunities. For example, Chettiparamb et al. [@Chettiparamb2012] examined the relationship between tourism and spatial planning in order to regulate it. They suggest that spatial planning could be an effective tool to tackle the challenges of regional tourism, leveraging opportunities and emphasizing community partiCIPsation and cooperation in tourism planning.
+
+Blasco et al. [-@Blasco2013] propose a new approach to delimit tourism regions beyond administrative boundaries based on the spatial distribution of attractions, particularly in mountain regions. They use hierarchical cluster analysis to group and classify attractions in nine regions in the Pyrenees Mountains, independent of administrative boundaries. Kang et al. [-@Kang2018] study the spatial structure of tourist attractions in the capital of Korea using the Anchor Point Theory and constructing local indicators of spatial association, among other methods.
+
+Rodríguez et al. [-@Rodríguez2020] studied the spatial distribution and intensity of tourism in Extremadura, Spain, and its relationship with the geographic, social, and economic characteristics of the region. They calculated the density of tourism establishments and Moran's index to measure intensity and spatial autocorrelation, respectively. They found an association between tourism intensity and accessibility, cultural and heritage presence, and even climate.
+
+Guedes et al. [-@Guedes2015] examined how tourism packages for mainland Portugal are organized by looking at the cultural tourist attractions and the number of overnight stays allocated to each municipality. Their goal is to identify patterns in how different areas are grouped together and the routes tourists typically take. This approach aims to provide an alternative to the polarized spatial layout created by mass tourism in Portugal since 1965, which has been replicated in the Algarve region after the construction of the international airport in Faro.
+
+Based on a typology of tourism and tourist in the Great Lakes Regions in Poland, Dekek et al. [-@Derek2019] study travel patterns through cluster analysis on survey data to understand different patterns and concentration to contribute a better planning and tourism management. Akerma et al. [-@Akerma2021] studies the spatial patterns and factors influencing tourism in the Bahamas through social media data, as well as estimates visits and tourism expenditure for support sustainable planning and management in marine protected areas. On the basis of spatial planning, i.e. ideal placement of tourist paths and the spatial arrangement of the infrastructure, Dunets et al. [-@Dunets2019] propose a project of health tourism in Russia trying to balance the stakeholders interest and the nature preservation. 
+
+Even we could not identify any study on CIPs spatial distribution of tourism establishments for Mexico, there are some studies about spatial distribution on some other tourism regions. Pick et al. [-@Pick2005] analyzed the tourist development in Mexico and its spatial patterns through the relationship between tourism and national economy, regional dependence on tourism and spatial concentration of tourist activity. Their analysis shows that tourist activity is concentrated in certain regions, and there is not an excessive economic dependence on tourism in some areas, which may lead to economic and environmental vulnerabilities in case of a decrease in tourist demand.
+
+Ghermandi et al. [-@Ghermandi2020] studied the spatial distribution of cultural and ecological tourism, highlighting the connection between a place's history, cultural heritage, and natural environment. They distinguished between local, national, and international geolocated photographs to describe spatial patterns of tourism in the Usumacinta floodplain in Southern Mexico. They found that the hot spot of cultural services had a much higher proportion of international visitors.
+
+Understanding the spatial patterns of tourism establishments in CIPs could help promote sustainable development, improve the quality of life for local communities, and identify new business opportunities for managers to pursue.
+
+# 3. Data and methods
+
+An in-depth study of Exploratory Spatial Data Analysis (ESDA) tools, including spatial point patterns, can be reviewed in Bivand [-@Bivand2010]. In order to investigate the spatial patterns and concentration of tourism establishments in the five CIPs, we use: i) the average nearest neighbor index, ii) standard deviation ellipse, iii) spatial kernel density, and iv) local indicator of spatial autocorrelation.
+
+## Average nearest neighbor index
+
+The average nearest neighbor index (ANNI) is a measure of clustering using point data. ANNI compares the actual distance between the two nearest points ($\bar D_O$) to a theoretical random distance pattern ($\bar D_E$) [@ESRI2023a]:
+$$
+ANNI=\frac{\bar D_O}{\bar D_E}
+$$
+
+Where actual distance and expected distance are, respectively:
+$$
+\begin{aligned}
+\bar D_O &=\frac{\sum_{i=1}^nd_i}{n} \\
+\bar D_E &=\frac{0.5}{\sqrt \frac {n}{A}}
+\end{aligned}
+$$
+
+Moreover, $d_i$ represents the observed distance between the two nearest points, $n$ is the total number of points, and $A$ corresponds to the rectangular area that covers all the points. An ANNI value less than 1 indicates clustering, while an ANNI greater than 1 reflects dispersion [@spatialEco2021].
+
+## Standard Deviational Ellipse
+
+Standard Deviational Ellipse (SDE) is a measure that shows graphically the dispersion or spread and orientation of a point data set [@Yuill1971; @ESRI2023b], which is useful for observing their spatial distribution. It is an ellipse that surrounds sixty-three percent of the point distribution. Here we use the Yuill method with the QGIS plugin developed by Tveite [-@tveitesde2016] (for an extensive explanation on how the SDE is constructed, see Wang et al. [-@Wang2022]).
+
+Based on a vector point layer, the Tveite [-@tveitesde2016] plug-in in QGis generate a new polygon vector layer which depicts the SDE and the attribute table contains standard deviation from major and minor axis of the Ellipse, among other information. We characterize the SDE shape with the ratio between the major standard deviation ($SD_x$) and the minor standard deviation ($SD_y$), which we called $RMM$: the more the $RMM$ is,  more evident and greater the orientation is.
+
+## Spatial kernel density
+
+Spatial kernel density (SKD) is a visualization of clustering based on the quartic kernel density points. The function of kernel density could be written as [@LuoCao2019: 6]:
+
+$$
+f(j)=\frac {1}{h^2}\sum[\frac{3}{\pi}(1-\frac{d_{ij}^2}{h^2})^2]
+$$
+
+We present the results of SKD in a heatmap, a geographic data visualization that shows spatial concentration as more colored areas on a map. We constructed heatmaps using interpolation tools in QGIS with an input point vector layer that resulted in a raster layer with density values. The raster layer is represented with this specific settings: single-band pseudocolor as render type, where the minimum and maximum values are default, and linear interpolation with continuous classification.
+
+## Global and local indicators of spatial autocorrelation
+
+Finally, we use Moran global ($I$) and local indicator of spatial correlation ($I_i$). Anselin´s [-@Anselin2020moran] notation for Moran Index is:
+$$
+I = \frac{\sum_i\sum_j w_{ij} z_i.z_j /S_0}{\sum_i z_i^2 / n}
+$$
+
+Where $w_{ij}$ are the elements of the weight matrix, $z_i = x_i - \bar{x}$, which represents the variable in mean deviations, and $S_0 = \sum_i \sum_j w_{ij}$, which corresponds to the total sum of elements in the spatial weight matrix. The Moran's $I$ measures global patterns of spatial autocorrelation and has values between -1 and 1 for negative and positive spatial autocorrelation, respectively. In contrast, the local version of Moran's Index in Anselin's notation [@Anselin2020local1] is given by:
+$$
+I_i = c \cdot z_i \sum_j w_{ij} z_j
+$$
+
+In which $I_i$ is the Moran's Local Spatial Association Statistic, $z_i$ and $z_j$ correspond to the value of the standardized variable in each unit of analysis $i$ and $j$, while $w_{ij}$ is each element of the row-standardized spatial weight matrix, and finally $c$ is a constant given by $\sum_i z_i^2$, the sum of the standardized variable values.
+
+The $I_i$ can be represented on a cluster map with four categories of territorial units: i) clusters of territorial units with high values of the variable surrounded by neighboring territorial units with similar characteristics (High-High clusters); ii) clusters of territorial units with low values of the variable surrounded by neighbors with the same characteristic (Low-Low clusters); iii) clusters of territorial units with low values of the variable surrounded by neighbors with high values (Low-High clusters); and iv) clusters of territorial units with a high value of the variable surrounded by others with a low value (High-Low clusters).
+
+When referring to "high" or "low" values in this context, it is important to note that these are relative terms, based on the range of values within the data set. The Low-High and High-Low clusters, on the other hand, identify territorial units that are spatial outliers, with either low or high variable values in comparison to their neighboring units
+
+## Data sourse
+
+To analyze the spatial distribution of tourism activity in the CIPs, we used information about establishment locations linked to the tourism sector for three years: 2010, 2020, and 2022. According to the World Tourism Organization (WNWTO) and the International Labour Organization (ILO) [@UNWTO2014], there are 29 activities at the industry group level (2 digits) in the North American Industry Classification System (NAICS) that pertain to hospitality and tourism, which are called Tourism Characteristic Activities. Information on establishment location was obtained from the National Statistical Directory of Economic Units (DENUE) and provided as point vector layers, published by the National Institute of Statistics and Geography (INEGI)[@INEGIdenue].
+
+In the context of the Open Science  movement [], we share the databases used in this work.  All materials used for this project are hosted on the collaborative development platform GitHub in this repository: https://github.com/jaime-pru/stm.
+
+It contains a copy of this report, as well as 3 folders: i) databases, which contains geographical data base in Geopackage format (`.gpkg`) ordered by CIP, ii) image_maps with the maps showed here and iii) bibli, which has the theoretical-methodological documents that served as a basis for this work.
+
+## Spatial areal unit
+
+For this study, five municipalities were selected based on the location of the CIPs [@Fonatur2020]: Los Cabos and Loreto, both located in Baja California Sur; Ixtapa-Zihuatanejo in the Zihuatanejo de Azueta municipality in Guerrero state; Cancún in Benito Juárez in Quintana Roo state; and Bahías de Huatulco in Santa María Huatulco in Oaxaca state. The spatial information of the five municipalities comes from the National Geostatistical Framework published by INEGI [-@INEGI2020mgn]. Using these five municipalities as an overlay layer, five point layers of tourism establishments were generated in QGIS 3.22 using the clip geoprocessing tool. To construct spatial autocorrelation indexes and cluster maps, we used a first-order queen spatial weight matrix and a poligon layer of Basic Geostatistical Areas or _Áreas Geoestadísticas Básicas_ (AGEB) pusbished by INEGI [-@INEGI2020mgn]. The AGEBs are the basic territorial areas from which the national statistics agency organizes the geographic information of the Mexican national territory. They are smaller than the municipality and can be made up of multiple localities.
+
+# 4. Results and discussion
+
+The total number of tourism establishments by year is presented in Table 1. It shows an important reduction in the number of establishments between 2010 and 2020, ranging from 25% in Ixtapa-Zihuatanejo CIPs to 54% in Huatulco CIPs. Changes between 2020 and 2022 are less notable, but they still reflect a net reduction in tourist establishments. Comparing these years is important as it reflects the impact of the pandemic, and as can be seen, the recovery is almost complete.
+
+Table 2 shows ANNI values for each of the five CIPs and for each year. ANNI values for all CIPs were less than one, indicating a very stable concentration point pattern in the spatial distribution of tourism establishments. There were no changes identified between 2020 and 2022, but minor changes were observed from 2010 to 2020 with a marginal increase in ANNI for Loreto and Huatulco, which means less concentration.
+
+|         CIPs        	|  2010 	|  2020 	|  2022 	|
+|:------------------:	|:-----:	|:-----:	|:-----:	|
+| Los Cabos          	| 1,614 	| 835   	| 798   	|
+| Loreto             	| 220   	| 100   	| 101   	|
+| Ixtapa-Zihuatanejo 	| 1,454 	| 377   	| 383   	|
+| Cancún             	| 3,407 	| 1,212 	| 1,192 	|
+| Bahías de Huatulco 	| 528   	| 290   	| 314   	|
+| Total              	| 7,223 	| 2,814 	| 2,788 	|
+: Table 1. Number of tourism establishments
+
+
+|         CIPs        	| 2010 	| 2020 	| 2022 	|
+|:------------------:	|:----:	|:----:	|:----:	|
+| Los Cabos          	| 0.08 	| 0.14 	| 0.14 	|
+| Loreto             	| 0.28 	| 0.19 	| 0.19 	|
+| Ixtapa-Zihuatanejo 	| 0.15 	| 0.20 	| 0.20 	|
+| Cancún             	| 0.22 	| 0.24 	| 0.24 	|
+| Bahías de Huatulco 	| 0.14 	| 0.14 	| 0.14 	|
+: Table 2. Average Nearest Neighbor
+
+The remaining results are displayed in separate figures for each CIPs. Each figure can be interpreted as a 6x6 matrix. The first row of the matrix shows the CIP's geographic location, SDE with a ratio between standard deviations ($RMM$), and the legend map. SKD is shown in the second row for each year, and the Cluster map is shown in the third row, accompanied by Moran's I and a count of the AGEB number in the High-High category.
+
+## Los Cabos
+
+Located in the northwest of Mexico, in the state of Baja California Sur (figure 1), Los Cabos CIPs started operations in 1976. It is comprised of two settlements: San José del Cabo and Cabo San Lucas [@FONATURloscabos]. Out of almost 3 million available rooms in January 2023, Los Cabos accounts for 20% [@DataTur2023], making it the second most important CIPs. The SDE for the past three years shows a large X-axis orientation from the southwest (Cabo San Lucas) to the northeast (San José del Cabo). Among them, Cabo San Lucas is the most important and the SDE covers this area the most, particularly around the principal port. The $RMM$ is above 3 but gradually decreasing, indicating a beginning process of a more homogeneous shape, although the dispersion and orientation do not change.
+
+The SKD or heatmaps for Los Cabos exhibit two areas with spatial concentration of tourism establishments, but the most significant one is located in Cabo San Lucas. Furthermore, the high-density area gradually decreased during this period, always around the main port, which was accompanied by a reduction in the number of establishments from 2010 to 2020 and a slight increase up to 2022.
+
+The cluster maps include Moran's I index and the number of AGEBs included in the High-High group. In these three years, we found evidence of moderate and significant spatial autocorrelation in tourism establishments per AGEB. The reduction of total establishments from 2010 to 2020 affected the magnitude of spatial autocorrelation and the number of spatial units in the HH cluster, but the increased concentration around the main port had a positive impact on spatial autocorrelation in 2022.
+
+**Insert Figure 1 near here**
+
+
+## Loreto
+
+Located in the same state as Los Cabos, Loreto CIP has not had the same level of success. The master plan for Loreto CIP was designed around the same time as Cancún's, in the late 1970s, but it did not begin operations until the 1990s [@Sicilia2000; @FONATURloreto]. Loreto CIP includes three settlements: Loreto, Nopoló, and Puerto Escondido. However, the impact of this CIP has fallen far short of its original expectations, as the number of visitors is considerably less than what was projected. The reasons for this lack of success are associated with a connectivity problems and low offer of services [@Tulio2015].
+
+The tourism establishments in Loreto CIP are spread out from the north in Loreto to the south in Puerto Escondido, but the majority of establishments are located in Loreto. This is the reason for the extended shape of the SDE for the three years. Moreover, the extension to the south increased from 2010 to 2020 and 2022, changing the SDE shape but contributing to a shorter y-axis which means less dispersion. The changes can be explained by a rise in tourism establishments in Nopoló and the southern area of Loreto municipality. Nevertheless, the major and persistent concentration is located in Loreto, as shown by SKD, despite a total reduction in establishments from more than two hundred to just one hundred. Significant spatial autocorrelation was identified, but its magnitude was between 0.342 and 0.406, and only three or four AGEB were in the HH cluster.
+
+**Insert Figure 2 near here**
+
+## Ixtapa-Zihuatanejo
+
+This was the second CIPs constructed by FONATUR in 1974 [@FONATURixtapa]. Tourism establishments are located in five settlements, from north to south: Pantla, San José Ixtapa, Ixtapa-Zihuatanejo (San José), Zihuatanejo, and Coaoyul. Nevertheless, the most important concentration is in front of Zihuatanejo Bay. From 2010 to 2020, more than one thousand tourism establishments were closed, representing almost 75% reduction. The SDE for the three years has a large x-axis oriented from Ixtapa-Zihuatanejo in the northwest to Zihuatanejo, where the majority of the ellipse covers. The distance of the y-axis is reduced from 2010 to 2020 and 2022, as multiple tourism establishments were closed in the far northern area of Zihuatanejo, resulting in a smaller spatial range or less dispersion reflected by the $RMM$. The SKD is very stable since the major concentration of tourism establishments appears almost constant in front of Zihuatanejo Bay, with a slight increase in Ixtapa-Zihuatanejo (San José). Spatial autocorrelation is present but relatively weak, and decreasing, as well as the number of AGEBs in the HH cluster. However, a new HH cluster appears near San José, which could reflect new business opportunities in this area.
+
+**Insert Figure 3 near here**
+
+## Cancún
+
+Cancún CIPs is the best known Mexican tourist destination in the World [@Fonatur2020] and the most successfull CIP of the Mexican government: it has 37.3% of the available room (January 2018) and 28.6% of the arrivals of non-resident tourists (January 2023). Cancún, located at municipality called Benito Juárez, has experimented a tremendous urbanization growth and it could be representative for the CIPs contradictions: fast economic growth, but with environmental and social problems.
+
+Tourism establishments seem to be mainly distributed in front of Cancún Port, which considerably affects the SDE shape, resulting in x and y axes with similar lengths. The reduction of tourism establishments in Cancún between 2010 and 2020 was the second most important among CIPs. The reduction of the number of tourism establishments was considerable in the north and west areas of Cancún, which displaced and changed the SDE shape to the southeast. The transition to a more homogeneous shape in the studied period, as reflected by $RMM$, is explained by the reduction of the establishment number.
+
+These displacements can be seen in the SKD maps with a reduction in the area of the major density, formerly located along López Portillo Avenue in 2010, and then with an increase in the eastern area known as Zona Hotelera. Cancún has the highest significant spatial autocorrelation among all CIPs, with values exceeding 0.55. However, the magnitude is gradually decreasing, as well as the number of AGEBs in the HH cluster. Besides, the cluster map shows relevance taken in the eastern area in Zona Hotelera.
+
+**Insert Figure 4 near here**
+
+## Bahías de Huatulco
+
+The Huatulco CIP is located in the state of Oaxaca and is comprised of two settlements, Santa Cruz Huatulco and La Crucecita, with the latter being the most important. Like all CIPs, Huatulco experienced a reduction in the number of tourism establishments, but it was less than 45%. The SDE has a long x-axis which reflects the relative location between the two towns, with Santa Cruz in the northwest and La Crucecita in the southeast. This orientation has remained unchanged from 2010 to 2022. La Crucecita almost entirely covers the SDE, indicating that it concentrates the majority of tourism establishments. The y-axis has increased in length from 2010 to 2020 and 2022, which indicates a rise in spatial dispersion of tourism establishments, primarily observed in the La Crucecita area.
+
+The major density area around La Crucecita remained relatively constant between 2010 and 2020 but showed an increase towards the coastal area in 2022. Additionally, there was a marginal increase in the area density to the east, specifically Tangolunda Bay. The spatial autocorrelation of tourism establishments is the lowest in the Huatulco CIP and decreasing as well, although the number of HH AGEB remains constant.
+
+**Insert Figure 5 near here**
+
+## The five CIPs in perspective
+
+As far as we know, this is the first study to analyze the five original projected CIPs simultaneously from a spatial perspective, with a focus on the spatial distribution of tourism establishments. This study represents only the first step in understanding how spatial patterns appear in different tourist destinations promoted by the central Mexican government. Through the use of various spatial analytical tools, we were able to identify changes in orientation and dispersion of tourism establishments between 2010 and 2022, as well as spatial concentration.
+
+Four CIPs didn´t show any significant changes in orientation, while Cancún change orientation associated to an increase in formerly low density areas. Changes in dispersion were identified through the changes in the length of the y-axis in SDE. Huatulco, Loreto, Cancún, and Los Cabos showed increased dispersion, while Ixtapa showed a decrease. We emphasize the relative homogeneity in orientation and stability in centripetal forces of economic tourism activities. However, changes in orientation in Cancún require further study as they may be associated with modifications in the location of centripetal forces of economic tourism activities in this area. The increase in dispersion is associated with the emergence of establishments relatively far from the main area of density, particularly true for Loreto and Huatulco.
+
+Reduction on tourism establishments number was a notable characteristic. All CIPs showed an important reduction on number of tourism establishments from 2010 to 2020. These reduction were from minus 45% in Huatulco to minus 74% in Ixtapa. In all CIPs, this reduction was explained by small and medium establishments (SMEs) with less than 30 employees. This fact shows the fragility of this kind of firms and necessity to a in-deep study of them, since SMEs explain an important amount of employment in Mexico, particularly in service sector.
+
+In this study, spatial patterns of tourism establishments were analyzed using three different tools: ANNI to measure concentration above all area, SKD to show high densities in defined areas by radio lengths, and cluster maps to show concentration measured as local interactions and variable levels simultaneously.
+
+Through ANNI, it was identified that in all cases and years, there is a spatial concentration of points throughout the studied area. Changes were barely visible and actually marginal. While Los Cabos, Ixtapa, and Cancun showed less concentration throughout the area, Loreto and Huatulco exhibited more concentration.
+
+Regarding the SKD, the reduction in the number of tourism establishments in each of the CIPs affected areas with higher density differently. While Los Cabos, Loreto, and Cancun showed a decrease in the area with higher density, Ixtapa and Huatulco did not show visible modifications in the size of the areas with higher density. However, in all cases, the absolute densities decreased, meaning the number of establishments per unit area was reduced.
+
+The cluster maps revealed that positive spatial autocorrelation was identified in all cases, indicating that there are AGEBs with a high number of establishments surrounded by others with similar characteristics. The concentration, in this case, changes direction because proximity is based on adjacency rather than distance, although the results of identifying high-high clusters coincide with previous instruments, particularly the SKD.
+
+The results of this exploratory research lead to the proposal of a new series of questions. The answers to these questions may provide elements to guide the decisions of those responsible for promoting and developing CIPs, as well as entrepreneurs, administrators, and associations regarding business opportunities based on knowledge of the spatial distribution of economic activity in CIPs. Among them, we can enumerate: Were the companies located in the areas of highest density the same in 2022 as in 2010? If so, what types of establishments were they in terms of size and tourist activity? What is the cause of the drastic decrease in the number of establishments between 2010 and 2020, and why did it mainly affect small and medium-sized enterprises? What is the relationship between the disappearance of companies and their distance from the most important concentration? The answers to these questions require further research that we have only just begun.
+
+# References
+
+
+
+
+
+
+
+
